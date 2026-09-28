@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="simple">
+  <link name="base"/>
+  <link name="link1"/>
+  <link name="mimic_link"/>
+  <link name="link2"/>
+  <link name="tool"/>
+  <joint name="joint1" type="revolute">
+    <parent link="base"/><child link="link1"/>
+    <origin xyz="0 0 0.2"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="3" effort="10"/>
+  </joint>
+  <joint name="mimic_joint" type="revolute">
+    <parent link="link1"/><child link="mimic_link"/>
+    <origin xyz="0.2 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-0.5" upper="0.5" velocity="1" effort="10"/>
+    <mimic joint="joint1" multiplier="-0.5" offset="0"/>
+  </joint>
+  <joint name="spin" type="continuous">
+    <parent link="mimic_link"/><child link="link2"/>
+    <origin xyz="0.2 0 0"/><axis xyz="0 1 0"/>
+    <limit velocity="2" effort="10"/>
+  </joint>
+  <joint name="tool_fixed" type="fixed">
+    <parent link="link2"/><child link="tool"/>
+    <origin xyz="0.1 0 0"/>
+  </joint>
+</robot>

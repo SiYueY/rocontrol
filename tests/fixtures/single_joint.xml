@@ -1,0 +1,11 @@
+<mujoco model="single_joint">
+  <compiler angle="radian"/>
+  <option timestep="0.001" gravity="0 0 0"/>
+  <worldbody>
+    <body name="arm">
+      <joint name="joint" type="hinge" axis="0 1 0" range="-1.5 1.5"/>
+      <inertial pos="0 0 -0.2" mass="1" diaginertia="0.1 0.1 0.1"/>
+    </body>
+  </worldbody>
+  <actuator><motor name="motor" joint="joint" ctrlrange="-20 20"/></actuator>
+</mujoco>

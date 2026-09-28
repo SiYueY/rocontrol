@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<robot name="dual_arm_spine">
+  <link name="base"/>
+  <link name="spine_link"/>
+  <joint name="spine" type="prismatic">
+    <parent link="base"/><child link="spine_link"/>
+    <axis xyz="0 0 1"/><limit lower="0" upper="0.4" velocity="0.2" effort="100"/>
+  </joint>
+  <link name="left_link1"/>
+  <joint name="left_joint1" type="revolute">
+    <parent link="spine_link"/><child link="left_link1"/>
+    <origin xyz="0.2 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link2"/>
+  <joint name="left_joint2" type="revolute">
+    <parent link="left_link1"/><child link="left_link2"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link3"/>
+  <joint name="left_joint3" type="revolute">
+    <parent link="left_link2"/><child link="left_link3"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link4"/>
+  <joint name="left_joint4" type="revolute">
+    <parent link="left_link3"/><child link="left_link4"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link5"/>
+  <joint name="left_joint5" type="revolute">
+    <parent link="left_link4"/><child link="left_link5"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link6"/>
+  <joint name="left_joint6" type="revolute">
+    <parent link="left_link5"/><child link="left_link6"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_link7"/>
+  <joint name="left_joint7" type="revolute">
+    <parent link="left_link6"/><child link="left_link7"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="left_ee"/>
+  <joint name="left_tool" type="fixed">
+    <parent link="left_link7"/><child link="left_ee"/>
+    <origin xyz="0 0 0.1"/>
+  </joint>
+  <link name="right_link1"/>
+  <joint name="right_joint1" type="revolute">
+    <parent link="spine_link"/><child link="right_link1"/>
+    <origin xyz="-0.2 0 0"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link2"/>
+  <joint name="right_joint2" type="revolute">
+    <parent link="right_link1"/><child link="right_link2"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link3"/>
+  <joint name="right_joint3" type="revolute">
+    <parent link="right_link2"/><child link="right_link3"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link4"/>
+  <joint name="right_joint4" type="revolute">
+    <parent link="right_link3"/><child link="right_link4"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link5"/>
+  <joint name="right_joint5" type="revolute">
+    <parent link="right_link4"/><child link="right_link5"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link6"/>
+  <joint name="right_joint6" type="revolute">
+    <parent link="right_link5"/><child link="right_link6"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 1 0"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_link7"/>
+  <joint name="right_joint7" type="revolute">
+    <parent link="right_link6"/><child link="right_link7"/>
+    <origin xyz="0 0 0.1"/><axis xyz="0 0 1"/>
+    <limit lower="-2" upper="2" velocity="2" effort="50"/>
+  </joint>
+  <link name="right_ee"/>
+  <joint name="right_tool" type="fixed">
+    <parent link="right_link7"/><child link="right_ee"/>
+    <origin xyz="0 0 0.1"/>
+  </joint>
+</robot>
